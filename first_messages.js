@@ -24,13 +24,9 @@ FirstMessages.prototype.startCommandLine = function() {
     }else{
       this.loadMessages(db);
     }
-
   }else{
     console.log("Message database does not exist");
   }
-
-  
-
 }
 
 FirstMessages.prototype.loadMessages = function(db, numberNameMap){
@@ -48,7 +44,6 @@ FirstMessages.prototype.loadMessages = function(db, numberNameMap){
       console.log("ID: " + rows[i].ROWID + secondHalf );
     }
     self.showMessages(db);
-    
   })
 }
 
@@ -66,7 +61,6 @@ FirstMessages.prototype.showMessages = function(db){
         console.log("No messages found")
       }
     });
-
     self.showMessages(db)
   });
 }
@@ -87,7 +81,6 @@ FirstMessages.prototype.loadContactNames = function(db){
         numberNameMap[cleanNumber] = (rows[i].ZFIRSTNAME || "") + (rows[i].ZLSTNAME || "");
       }
       fulfill(numberNameMap);
-      
     })
   });
   
@@ -112,8 +105,4 @@ getContactDBFile().then(function(chatDbFile){
   var chat = new FirstMessages(dbFile,chatDbFile)
   chat.startCommandLine()
 });
-
-
-
-
 
